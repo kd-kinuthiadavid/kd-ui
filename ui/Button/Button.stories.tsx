@@ -16,9 +16,6 @@ const Secondary: Story = {
 const Tertiary: Story = {
   render: () => <Button intent="tertiary">Tertiary</Button>,
 };
-const Circular: Story = {
-  render: () => <Button intent="circular">Circular</Button>,
-};
 
 export default meta;
-export { Primary, Secondary, Tertiary, Circular };
+export { Primary, Secondary, Tertiary };

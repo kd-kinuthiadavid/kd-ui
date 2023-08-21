@@ -7,7 +7,6 @@ export default function Home() {
       <Button intent="primary">Primary</Button>
       <Button intent="secondary">secondary</Button>
       <Button intent="tertiary">tertiary</Button>
-      <Button intent="circular">add</Button>
     </main>
   );
 }

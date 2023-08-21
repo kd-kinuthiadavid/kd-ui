@@ -9,9 +9,6 @@ const buttonStyles = cva(["py-2.5 px-5 m-2 capitalize rounded-full"], {
         "bg-product-base-base-light border border-product-content-content-primary",
       ],
       tertiary: ["underline underline-offset-4"],
-      circular: [
-        "bg-core-bright-green rounded-full w-[56px] h-[56px] flex justify-center items-center",
-      ],
     },
     fullWidth: {
       true: "w-full",
@@ -26,8 +23,14 @@ interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonStyles> {}
 
-const Button: FC<ButtonProps> = ({ className, intent, children, ...props }) => (
-  <button className={buttonStyles({ intent, className })} {...props}>
+const Button: FC<ButtonProps> = ({
+  className,
+  intent,
+  fullWidth,
+  children,
+  ...props
+}) => (
+  <button className={buttonStyles({ intent, className, fullWidth })} {...props}>
     {children}
   </button>
 );
