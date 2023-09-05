@@ -3,6 +3,7 @@ import CircularButton from ".";
 
 const meta = {
   component: CircularButton,
+  tags: ["autodocs"],
 } satisfies Meta<typeof CircularButton>;
 
 type Story = StoryObj<typeof meta>;

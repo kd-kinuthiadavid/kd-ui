@@ -3,6 +3,7 @@ import Button from ".";
 
 const meta = {
   component: Button,
+  tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof meta>;
