@@ -16,21 +16,29 @@ const buttonStyles = cva(["py-2.5 px-5 m-2 capitalize rounded-full"], {
   },
   defaultVariants: {
     intent: "primary",
+    fullWidth: false,
   },
 });
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonStyles> {}
+    VariantProps<typeof buttonStyles> {
+  handleButtonClick: () => void;
+}
 
 const Button: FC<ButtonProps> = ({
   className,
   intent,
   fullWidth,
   children,
+  handleButtonClick,
   ...props
 }) => (
-  <button className={buttonStyles({ intent, className, fullWidth })} {...props}>
+  <button
+    className={buttonStyles({ intent, className, fullWidth })}
+    {...props}
+    onClick={handleButtonClick}
+  >
     {children}
   </button>
 );
