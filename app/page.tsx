@@ -8,15 +8,21 @@ export default function Home() {
   return (
     <main>
       hello world
-      <Button intent="primary" handleButtonClick={handleButtonClick}>
-        Primary
-      </Button>
-      <Button intent="secondary" handleButtonClick={handleButtonClick}>
-        secondary
-      </Button>
-      <Button intent="tertiary" handleButtonClick={handleButtonClick}>
-        tertiary
-      </Button>
+      <Button
+        intent="primary"
+        handleButtonClick={handleButtonClick}
+        text="Primary"
+      />
+      <Button
+        intent="secondary"
+        handleButtonClick={handleButtonClick}
+        text="Secondary"
+      />
+      <Button
+        intent="tertiary"
+        handleButtonClick={handleButtonClick}
+        text="Tertiary"
+      />
       <CircularButton intent="add" />
     </main>
   );

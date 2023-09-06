@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Button from ".";
+import { text } from "stream/consumers";
 
 const meta = {
   component: Button,
@@ -8,7 +9,6 @@ const meta = {
     handleButtonClick: {
       description: "Callback function to handle user clicks",
       name: "handleButtonClick",
-      defaultValue: () => alert("Button Clicked"),
     },
     fullWidth: {
       name: "fullWidth",
@@ -16,15 +16,39 @@ const meta = {
       control: {
         type: "boolean",
       },
-      defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     intent: {
       control: {
-        type: "text",
+        type: "radio",
+      },
+      table: {
+        defaultValue: { summary: "primary" },
       },
       options: ["primary", "secondary", "tertiary"],
       defaultValue: "primary",
       description: "How do you intend to use this button?",
+      name: "Intent",
+    },
+    size: {
+      description: "size of the button",
+      name: "Size",
+      options: ["small", "medium", "large", "xl"],
+      control: {
+        type: "select",
+      },
+      table: {
+        defaultValue: { summary: "medium" },
+      },
+    },
+    text: {
+      name: "Text",
+      description: "The text to be displayed on the button",
+      table: {
+        defaultValue: { summary: "Hello" },
+      },
     },
   },
 } satisfies Meta<typeof Button>;
@@ -35,27 +59,11 @@ function handleButtonClick() {
   alert("Button Clicked!");
 }
 
-const Primary: Story = {
-  render: () => (
-    <Button intent="primary" handleButtonClick={handleButtonClick}>
-      Primary
-    </Button>
-  ),
+export const Primary: Story = {
+  args: {
+    intent: "primary",
+    text: "Hello",
+    handleButtonClick: handleButtonClick,
+  },
 };
-const Secondary: Story = {
-  render: () => (
-    <Button intent="secondary" handleButtonClick={handleButtonClick}>
-      Secondary
-    </Button>
-  ),
-};
-const Tertiary: Story = {
-  render: () => (
-    <Button intent="tertiary" handleButtonClick={handleButtonClick}>
-      Tertiary
-    </Button>
-  ),
-};
-
 export default meta;
-export { Primary, Secondary, Tertiary };
